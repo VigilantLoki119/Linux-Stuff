@@ -1,0 +1,152 @@
+Creating WSL
+========================================================================================================================
+1. Open PowerShell as Administrator and run:
+
+	Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+	
+2. Restart your computer when prompted.
+
+3. Install your Linux Distribution of Choice from windows store (search for linux)
+========================================================================================================================
+Adding a desktop environment
+========================================================================================================================
+STEP 1 Install Xfce desktop environment
+
+There are numerous desktop environments for Linux. However, it seems Xfce provides the most hassle free experience for WSL. To install Xfce, execute the following command lines:
+
+	sudo apt update && sudo apt -y upgrade
+	sudo apt install xfce4 xfce4-terminal
+	
+STEP 2 Create a batch file for launching X410 and Xfce
+	
+	create start-ubuntu-xfce-desktop.bat
+
+	start /B x410.exe /desktop
+	ubuntu1804.exe run "if [ -z \"$(pidof xfce4-session)\" ]; then export DISPLAY=127.0.0.1:0.0; xfce4-session; pkill '(gpg|ssh)-agent'; fi;"
+
+========================================================================================================================
+Is your Xfce4 crashing when closing an app like gedit?
+========================================================================================================================
+
+If you're experiencing such crashes, try launching "xfce4-session" directly from WSL command prompt after manually starting X410 in Desktop mode. You should then be able to examine the warning and error messages generated from Xfce4 components.
+
+If you're seeing a "Got disconnected from D-Bus" message from xfce4-session just before Xfce4 crashes, try the following batch file.
+start-ubuntu-xfce-desktop.bat
+
+start /B x410.exe /desktop
+ubuntu1804.exe run "if [ -z \"$(pidof xfsettingsd)\" ]; then export DISPLAY=127.0.0.1:0.0; xfsettingsd --sm-client-disable; xfwm4 --sm-client-disable & xfce4-panel --sm-client-disable & xfdesktop --sm-client-disable; pkill '(gpg|ssh)-agent'; fi;"
+
+========================================================================================================================
+Customizing Xfce Desktop
+Customizing Xfce Desktop
+
+In case you're curious about the theme and icons used for transforming the default Xfce to something like the above screenshot, here are the ingredients:
+1. Adapta Theme
+
+If you're using Ubuntu 18.04 (Bionic), you can install the theme from its official PPA repository:
+
+sudo add-apt-repository -y ppa:tista/adapta
+sudo apt update
+sudo apt install adapta-gtk-theme
+
+For Ubuntu 16.04 (Xenial), you need to download and install a *.deb package file. The last known working version can be installed with the following command lines:
+
+wget https://launchpad.net/~tista/+archive/ubuntu/adapta/+files/adapta-gtk-theme_3.93.0.11-0ubuntu1~xenial1_all.deb
+sudo apt install ./adapta-gtk-theme_3.93.0.11-0ubuntu1~xenial1_all.deb
+
+You can share Windows fonts with Ubuntu. But if you want to install the Roboto and Noto fonts mentioned in Adapta theme, you can install them via Ubuntu packages:
+
+sudo apt install fonts-roboto
+sudo apt install fonts-noto
+
+After installing the theme, you need to change the following options:
+
+    [ Applications ] » [ Settings ] » [ Appearance ] » [ Style ] » Adapta-Noto
+    [ Applications ] » [ Settings ] » [ Window Manager ] » [ Style ] » Adapta-Noto
+
+2. Papirus Icons
+
+Papirus team has their official Launchpad repository and their icons can be installed from that PPA. However, installing Papirus icons takes unexpectedly too long (20+ minutes) in WSL. Hence we recommend directly downloading and installing the icons from a *.deb package. It still takes long time to install but Ubuntu won't try to upgrade the icons every time Papirus team publishes a new package (which happens quite often).
+
+For example, after locating a package from the Launchpad page:
+
+wget https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/papirus-icon-theme_20180512-2389+pkg18~ubuntu14.04.1_all.deb
+sudo apt install ./papirus-icon-theme_20180512-2389+pkg18~ubuntu14.04.1_all.deb
+
+If you really want to use the PPA:
+
+sudo add-apt-repository -y ppa:papirus/papirus
+sudo apt update
+sudo apt install papirus-icon-theme
+
+To remove the PPA:
+
+sudo add-apt-repository --remove ppa:papirus/papirus
+
+3. Tilix Terminal Emulator
+
+There are an endless number of terminal emulators for Linux. Tilix is used for this example as we wanted to try something new. If you're using Ubuntu 18.04 (Bionic), an official Tilix package is already available:
+
+sudo apt install tilix
+
+To Install it on Ubuntu 16.04 (Xenial), you need to use a PPA:
+
+sudo add-apt-repository -y ppa:webupd8team/terminix
+sudo apt update
+sudo apt install tilix
+
+In case you're curious about the theme and icons used for transforming the default Xfce to something like the above screenshot, here are the ingredients:
+1. Adapta Theme
+
+If you're using Ubuntu 18.04 (Bionic), you can install the theme from its official PPA repository:
+
+	sudo add-apt-repository -y ppa:tista/adapta
+	sudo apt update
+	sudo apt install adapta-gtk-theme
+
+For Ubuntu 16.04 (Xenial), you need to download and install a *.deb package file. The last known working version can be installed with the following command lines:
+
+wget https://launchpad.net/~tista/+archive/ubuntu/adapta/+files/adapta-gtk-theme_3.93.0.11-0ubuntu1~xenial1_all.deb
+sudo apt install ./adapta-gtk-theme_3.93.0.11-0ubuntu1~xenial1_all.deb
+
+You can share Windows fonts with Ubuntu. But if you want to install the Roboto and Noto fonts mentioned in Adapta theme, you can install them via Ubuntu packages:
+
+	sudo apt install fonts-roboto
+	sudo apt install fonts-noto
+
+After installing the theme, you need to change the following options:
+
+    [ Applications ] » [ Settings ] » [ Appearance ] » [ Style ] » Adapta-Noto
+    [ Applications ] » [ Settings ] » [ Window Manager ] » [ Style ] » Adapta-Noto
+
+2. Papirus Icons
+
+Papirus team has their official Launchpad repository and their icons can be installed from that PPA. However, installing Papirus icons takes unexpectedly too long (20+ minutes) in WSL. Hence we recommend directly downloading and installing the icons from a *.deb package. It still takes long time to install but Ubuntu won't try to upgrade the icons every time Papirus team publishes a new package (which happens quite often).
+
+For example, after locating a package from the Launchpad page:
+
+	wget https://launchpad.net/~papirus/+archive/ubuntu/papirus/+files/papirus-icon-theme_20180512-2389+pkg18~ubuntu14.04.1_all.deb
+	sudo apt install ./papirus-icon-theme_20180512-2389+pkg18~ubuntu14.04.1_all.deb
+
+If you really want to use the PPA:
+
+	sudo add-apt-repository -y ppa:papirus/papirus
+	sudo apt update
+	sudo apt install papirus-icon-theme
+
+To remove the PPA:
+
+	sudo add-apt-repository --remove ppa:papirus/papirus
+
+3. Tilix Terminal Emulator
+
+There are an endless number of terminal emulators for Linux. Tilix is used for this example as we wanted to try something new. If you're using Ubuntu 18.04 (Bionic), an official Tilix package is already available:
+
+	sudo apt install tilix
+
+To Install it on Ubuntu 16.04 (Xenial), you need to use a PPA:
+
+	sudo add-apt-repository -y ppa:webupd8team/terminix
+	sudo apt update
+	sudo apt install tilix
+========================================================================================================================
