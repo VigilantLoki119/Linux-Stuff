@@ -1,0 +1,118 @@
+Brave browser install:
+
+sudo apt install apt-transport-https curl
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+List of softwares:
+
+1. brave - privacy browser
+
+2. vlc - media player
+
+3. qbittorrent - torrent client
+
+5. steam - gaming
+
+6. thunderbird - mail
+
+7. lutris: - gaming
+	sudo add-apt-repository ppa:lutris-team/lutris
+	sudo apt-get update
+	sudo apt-get install lutris
+	
+8. playonlinux - gaming
+
+9. wine - windows compatibility layer tool
+
+10. gnome clocks - clock for gnome desktop enviroment
+
+11. gnome calendar - calender for gnome desktop environment
+
+12. gparted - partitioning software
+
+13. synaptic package manager - package manager for debian based architecture
+
+14. gimp - photoshop alternative
+
+15. lollypop - music player
+
+16. kdenlive - video editor
+
+17. kde connect - for remoting computer with phone
+
+18. htop - CLI task manager
+
+19. gnome tweak tools - gnome desktop enviroment tweaker
+
+20. vs code - IDE
+
+21. nodejs - framework
+
+22. sudo apt install git - git client
+
+23. gitkraken - frontend for git
+
+24. sudo apt install ffmpegthumbnailer - to enable video thumbnails in file manager
+
+25. timeshift - system backup tool
+
+27. stacer - linux system cleaner and manager
+	$ wget https://github.com/oguzhaninan/Stacer/releases/download/v1.0.4/Stacer_1.0.4_i386.deb
+	$ sudo dpkg --install Stacer_1.0.4_i386.deb
+	$ Stacer
+
+29. gufw - firewall for linux
+
+30. redshift - blue light filtering software
+
+31. gnome-shell-extensions - only for gnome desktop enviroment
+    sudo apt-get install chrome-gnome-shell
+
+32. pop-os theme for gnome - also for gnome desktop environment
+	sudo add-apt-repository ppa:system76/pop
+	sudo apt update
+	sudo apt install pop-theme
+
+33. oibaf graphics driver for amd r5 m430 - only for me
+    sudo add-apt-repository ppa:oibaf/graphics-drivers
+    sudo apt update
+    sudo apt upgrade
+
+37. discord - chat application
+
+38. neofetch - CLI system info
+
+39. pulseeffects - sound manager(not required)
+
+40. sudo apt install ttf-mscorefonts-installer - for libre office installation
+
+41. sudo add-apt-repository -y ppa:webupd8team/haguichi - hamachi server frontend
+    sudo apt update
+    sudo apt install -y haguichi
+
+42. OBS - screen recorder and screen streaming
+
+43. openjdk - java
+
+44. eclipse - java IDE
+
+45. sudo add-apt-repository ppa:ernstp/mesarc - overclocking software
+    sudo apt-get update
+    sudo apt install corectrl
+
+44. freeoffice - MS Office alternative
+
+45. pinta - MS Paint alternative
+
+46. ulauncher - hot search for linux
+
+47. Rambox - multi chat and mailing client

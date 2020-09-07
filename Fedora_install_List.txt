@@ -1,0 +1,109 @@
+===================================================
+Add RPM Fusion for free and nonfree
+===================================================
+1.  dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+2.  dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+---------------------------------------------------
+
+===================================================
+Fedy Fedora install for jabotio jinish
+===================================================
+
+1. sudo dnf copr enable kwizart/fedy
+2. sudo dnf install fedy -y
+
+---------------------------------------------------
+install softwares, drivers, plugins, IDE's from fedy:
+---------------------------------------------------
+
+1. rambox
+2. lutris
+3. Gitkraken
+4. Postman
+5. Intellij Idea Community Edition
+6. Visual Studio Code
+7. ffmpegthumbnailer
+8. Adobe Flash (npapi)
+9. Archive Formats
+10. Encrypted DVD playback
+11. Microsoft Trutype core fonts
+12. Multimedia Codecs
+
+===================================================
+Install softwares from the terminal
+===================================================
+sudo dnf install <softy-name>
+
+1. vlc
+2. neofetch 
+3. steam 
+4. wine 
+5. winetricks 
+6. lutris 
+7. nodejs 
+8. pinta 
+9. stacer
+10. htop
+11. qbittorrent
+12. kde-connect
+13. timeshift 
+14. discord 
+15. obs-studio 
+16. corectrl
+17. oracle-virtualbox
+18. gcc
+19. make 
+20. perl
+
+----------------------------------------------------
+
+====================================================
+Change to any desktop environments
+====================================================
+
+sudo dnf swap @<current-DE> @<new-DE>
+
+desktop environments:
+
+1. gnome-desktop
+2. kde-desktop
+3. dnf install 9wm
+4. dnf install awesome
+5. dnf install blackbox
+6. dnf install bspwm
+7. dnf install byobu
+8. dnf group install "Cinnamon Desktop"
+9. dnf install cwm
+10. dnf group install "Deepin Desktop"; dnf group install "Deepin Desktop Office" "Media packages for Deepin Desktop"
+11. dnf install dwm
+12. dnf install enlightenment
+13. dnf install e16
+14. dnf install fluxbox; dnf install fluxbox-pulseaudio fluxbox-vim-syntax
+15. dnf install fvwm
+16. dnf group install "GNOME"; dnf group install "Fedora Workstation" 
+17. dnf install herbstluftwm; dnf install herbstluftwm-zsh herbstluftwm-fish
+18. dnf install i3; dnf install i3-doc i3-ipc
+19. dnf install icewm; dnf install icewm-minimal-session
+20. dnf install jwm
+21. dnf group install "KDE Plasma Workspaces"; dnf group install "KDE Applications" "KDE Educational applications" "KDE Multimedia support" "KDE Office" "KDE Telepathy" || (optional for wayland) dnf install kwin-wayland plasma-workspace-wayland
+22. dnf install lumina-desktop; dnf install lumina-*
+23. dnf group install "LXDE Desktop"; dnf group install "LXDE Office" "Multimedia support for LXDE"
+24. dnf group install "LXQt Desktop"; dnf group install "LXQt Office" "Multimedia support for LXQt"
+25. dnf group install "MATE Desktop"; dnf group install "MATE Applications"
+26. dnf install musca
+27. dnf install openbox; dnf install openbox-kde openbox-theme-mistral-thin-dark
+28. dnf group install "Pantheon Desktop"; dnf install elementary-capnet-assist elementary-greeter elementary-shortcut-overlay
+29. dnf install pekwm
+30. dnf install qtile
+31. dnf install ratpoison
+32. dnf install sawfish; dnf install sawfish-pager
+33. dnf install spectrwm
+34. dnf group install "Sugar Desktop Environment"; dnf group install "Additional Sugar Activities"
+35. dnf install sway
+36. dnf install xorg-x11-twm
+37. dnf install WindowMaker; dnf install WindowMaker-extra
+39. dnf install wmx
+40. dnf group install "Xfce Desktop"; dnf group install "Applications for the Xfce Desktop" "Extra plugins for the Xfce panel" "Multimedia support for Xfce" "Xfce Office"
+41. dnf install xmonad; dnf install xmonad-mate
+
+----------------------------------------------------
