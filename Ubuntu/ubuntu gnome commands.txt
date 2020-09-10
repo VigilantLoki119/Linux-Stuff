@@ -116,3 +116,6 @@ List of softwares:
 46. ulauncher - hot search for linux
 
 47. Rambox - multi chat and mailing client
+48. Kodi
+49. preload
+50. ubuntu-restricted-extras
