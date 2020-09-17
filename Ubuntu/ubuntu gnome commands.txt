@@ -119,3 +119,4 @@ List of softwares:
 48. Kodi
 49. preload
 50. ubuntu-restricted-extras
+51. plank

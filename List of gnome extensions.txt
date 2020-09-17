@@ -1,0 +1,18 @@
+List of gnome extensions
+
+1. Application volume mixer
+2. Dynamic panel transparency
+3. Apt update indicator
+4. Arc menu
+5. Clipboard Indicator
+6. Dash to dock
+7. Desktop icons
+8. Material Shell
+9. Netspeed
+10. Night Light Slider
+11. OpenWeather
+12. Places status indicator
+13. Removable drive menu
+14. Remove dropdown arrows
+15. ubuntu app indicators
+16. user themes
