@@ -1,0 +1,115 @@
+-------------------NETWORK SETUP----------------------
+
+for direct connection...
+
+ping google.com 
+
+
+for wifi, in terminal type...
+
+iwctl
+
+[iwd]# device list
+[iwd]# station device scan
+[iwd]# station device get-networks
+[iwd]# station device connect SSID
+
+if the above steps don't work, try to reboot the installation media and try again, keep trying. it will work!
+
+ping google.com after adding wifi connection
+
+-------------------SET DEFAULT TIME----------------------
+
+timedatectl set-ntp true
+date
+
+-------------------PARTITIONING DISK----------------------
+
+lsblk (to check the partitioning devices)
+cfdisk /dev/sdX (where X is the device name a,b,c, so on..)
+
+partition the disk by deleting all the current partitions
+
+mkfs.fat -F32 /dev/sdX1 (this is to partition the boot efi partition)
+mkfs.ext4 /dev/sdX2 (this is to partition other partitions like root or home)
+
+mounting them.....
+
+mount /dev/sdX2 /mnt
+mkdir /home
+mount /dev/sdX3 /mnt/home
+lsblk (to check whether properly mounted)
+
+-------------------INSTALLING ARCH LINUX----------------------
+
+pacstrap /mnt linux base linux-firmware
+
+genfstab -U /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab (checking contents)
+
+
+to get inside the arch installed terminal...
+
+arch-chroot /mnt /bin/bash
+
+
+setting up the timezone...
+
+ln -sf /usr/share/zoneinfo/<tab twice to select country>/<tab to select region> /etc/localtime
+hwclock --systohc --utc (setting the system time)
+date
+nano /etc/locale.gen (to set the locale, here scroll down to find en_US.UTF-8 UTF-8 and uncomment it, save and exit)
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+cat /etc/locale.conf (to check)
+
+
+setting up hosts
+
+echo <hostname> > /etc/hostname
+nano /etc/hosts
+then add this line:
+127.0.1.1 localhost.localdomain <hostname> (then save and exit)
+
+
+install networkmanager...
+
+pacman -S networkmanager
+systemctl enable NetworkManager
+
+
+set the root password..
+
+passwd
+
+
+setting up grub...
+
+pacman -S grub efibootmgr
+mkdir /boot/efi
+mount /dev/sdX1 /boot/efi/
+lsblk
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCHLINUX --removable
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+exit
+umount -R /mnt
+reboot
+
+
+-------------------POST INSTALLATION SETUPS----------------------
+
+after reboot...
+login into root user and passwd
+useradd -m -g users -G wheel -s /bin/bash <username>
+add password
+EDITOR=nano visudo (here scroll down to find %wheel ALL=(ALL) ALL and uncomment it, save and exit)
+exit and relogin as the new user
+
+
+now final steps, install desktop environment and it's dependencies
+
+sudo pacman -S pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server plasma plasma-desktop
+sudo systemctl enable sddm
+
+reboot
