@@ -14,5 +14,5 @@ List of gnome extensions
 12. Places status indicator
 13. Removable drive menu
 14. Remove dropdown arrows
-15. ubuntu app indicators
+15. KStatusNotifierItem
 16. user themes
